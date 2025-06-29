@@ -1,2 +1,2 @@
-# Hardtsee-Wassertemperatur
+# Hardtsee-Temperatur
 Zeigt die Wassertemperatur im Hardtsee
