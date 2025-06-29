@@ -3,6 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="icon" type="image/png" sizes="16x16" href="fileadmin/templates/img/freizeitzentrum/favicon/favicon-16x16.png?v=xQdvYANxR0">
+  <link rel="icon" type="image/png" sizes="32x32" href="fileadmin/templates/img/freizeitzentrum/favicon/favicon-32x32.png?v=xQdvYANxR0">
+  <link rel="icon" type="image/png" sizes="192x192" href="fileadmin/templates/img/freizeitzentrum/favicon/favicon-192x192.png?v=xQdvYANxR0">
+  <link rel="apple-touch-icon" sizes="180x180" href="fileadmin/templates/img/freizeitzentrum/favicon/apple-touch-icon.png?v=xQdvYANxR0">
+  <link rel="shortcut icon" href="fileadmin/templates/img/freizeitzentrum/favicon/favicon.ico?v=xQdvYANxR0">
   <title>Hardtsee Wassertemperatur</title>
   <style>
     html, body {
@@ -15,14 +20,27 @@
       justify-content: center;
       color: #333;
     }
+    .container {
+      text-align: center;
+    }
     .temp {
       font-size: 5rem;
       font-weight: 300;
+      display: inline-block;
+    }
+    .label {
+      font-size: 0.9rem;
+      color: #666;
+      margin-top: 0.3rem;
+      display: inline-block;
     }
   </style>
 </head>
 <body>
-  <div class="temp" id="temperature">Loading ...</div>
+  <div class="container">
+    <div class="temp" id="temperature">__,_ &#176;C</div><br />
+    <div class="label">Wassertemperatur Hardtsee</div>
+  </div>
 
   <script>
     async function loadTemperature() {
