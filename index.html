@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hardtsee Wassertemperatur</title>
+  <style>
+    html, body {
+      height: 100%;
+      margin: 0;
+      background-color: #f9f9f9;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #333;
+    }
+    .temp {
+      font-size: 5rem;
+      font-weight: 300;
+    }
+  </style>
+</head>
+<body>
+  <div class="temp" id="temperature">Loading ...</div>
+
+  <script>
+    async function loadTemperature() {
+      try {
+        const response = await fetch('https://scubw.duckdns.org/weewx/belchertown/json/weewx_data.json');
+        const data = await response.json();
+        const temp = data?.current?.extraTemp1;
+        if (temp) {
+          document.getElementById('temperature').innerHTML = temp;
+        } else {
+          document.getElementById('temperature').textContent = 'No temperature available';
+        }
+      } catch (err) {
+        document.getElementById('temperature').textContent = 'Failed to load weewx data';
+        console.error(err);
+      }
+    }
+
+    loadTemperature()
+  </script>
+</body>
+</html>
